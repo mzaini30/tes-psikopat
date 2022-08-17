@@ -1,0 +1,54 @@
+- judul = "Tes Psikopat"
+
+mixin css(x)
+  link(rel="stylesheet" href=`vendor/${x}`)
+  
+mixin js(x)
+  script(src=`vendor/${x}`)
+  
+mixin icon(x)
+  .glyphicon(class=`glyphicon-${x}`)
+  
+mixin pernyataan(fav, unfav)
+  .pernyataan.sembunyi
+    p #{fav}
+    .btn.btn-default.jawaban(data-nilai=3) Sangat Setuju
+    .btn.btn-default.jawaban(data-nilai=2) Setuju
+    .btn.btn-default.jawaban(data-nilai=1) Tidak Setuju
+    .btn.btn-default.jawaban(data-nilai=0) Sangat Tidak Setuju
+  .pernyataan.sembunyi
+    p #{unfav}
+    .btn.btn-default.jawaban(data-nilai=0) Sangat Setuju
+    .btn.btn-default.jawaban(data-nilai=1) Setuju
+    .btn.btn-default.jawaban(data-nilai=2) Tidak Setuju
+    .btn.btn-default.jawaban(data-nilai=3) Sangat Tidak Setuju
+
+doctype html
+html
+  head
+    title #{judul}
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+    +css("bootstrap/css/bootstrap.min.css")
+    style
+      include:stylus ../include/style.stylus
+  body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          .navbar-toggle.collapsed(data-toggle="collapse" data-target="#isi-menu")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="index.html") #{judul}
+        .collapse.navbar-collapse#isi-menu
+          ul.nav.navbar-nav
+            li: a(href=`https://play.google.com/store/apps/details?id=com.mzaini30.${judul.toLowerCase().replace(/ /g, "")}`) Kasih bintang 5
+            li: a(href="https://play.google.com/store/apps/dev?id=5401138465689796048") Aplikasi lainnya
+    .container
+      block isi
+    +js("jquery/jquery.min.js")
+    +js("vconsole/vconsole.min.js")
+    +js("bootstrap/js/bootstrap.min.js")
+    script
+      include:babel(presets=["es2015"]) ../include/app.js

@@ -1,0 +1,30 @@
+extends layout/default.pug
+
+block isi
+  .tes
+  
+  .alert.alert-warning
+    strong Catatan:
+    br
+    | Untuk hasil tes yang lebih akurat, silahkan menguhubungi psikolog terdekat
+    
+  .hasil.sembunyi
+    p: strong Tingkat psikopat:
+      span.pull-right #[span.nilai 0]%
+    .progress: .progress-bar.progress-bar-default.progress-hasil
+   
+  +pernyataan("Berbohong itu gampang", "Aku mikir 100 kali buat berbohong")
+  +pernyataan("Aku hebat", "Aku sama dengan orang lain")
+  +pernyataan("Buat apa menyesali perbuatanku?", "Aku merasa bersalah telah melanggar peraturan")
+  +pernyataan("Peraturan itu untuk dilanggar", "Peraturan harus ditaati")
+  +pernyataan("Aku nggak peduli tetangga lagi ngapain", "Wow, ada berita heboh di desa sebelah")
+  +pernyataan("Hewan itu memang takdirnya buat dibunuh", "Aku kasihan melihat hewan dibunuh")
+  +pernyataan("Aku nggak suka dengan dia. Aku harus menghabisinya", "Lebih baik berdamai")
+  +pernyataan("Kalau aku pengen melakukan sesuatu, ya tinggal kulakukan aja", "Aku berpikir dulu sebelum bertindak")
+  +pernyataan("Aku nggak mau bertanggung jawab", "Aku adalah orang yang bertanggung jawab")
+  +pernyataan("Aku pintar memanipulasi bahasa tubuh", "Kalau aku lagi cemas, kelihatan banget")
+  +pernyataan("Yang penting aku senang walaupun memanfaatkan teman", "Aku nggak enakan i orangnya")
+  +pernyataan("Semua orang mengatakanku jenius", "Kecerdasanku biasa aja")
+  +pernyataan("Aku paling benar", "Aku kadang salah sih")
+  +pernyataan("Aku tau yang orang lain nggak tau", "Yang aku tau ya yang orang lain tau")
+  +pernyataan("Perkiraanku tak pernah meleset", "Perkiraanku kadang salah")
